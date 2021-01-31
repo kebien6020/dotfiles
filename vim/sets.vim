@@ -10,6 +10,8 @@ set belloff=all
 set timeout timeoutlen=100 ttimeoutlen=50
 " Mode is shown in airline
 set noshowmode
+" Save with LF, try to read as LF or as CRLF
+set fileformats=unix,dos
 
 " TABS
 filetype plugin indent on

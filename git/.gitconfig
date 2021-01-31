@@ -1,3 +1,5 @@
 [user]
 	email = kevin.pena.prog@gmail.com
 	name = Kevin Peña
+[core]
+	autocrlf = false
