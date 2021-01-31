@@ -7,7 +7,7 @@ set hidden
 set encoding=utf-8
 set scrolloff=4
 set belloff=all
-set timeout timeoutlen=100 ttimeoutlen=100
+set timeout timeoutlen=100 ttimeoutlen=50
 " Mode is shown in airline
 set noshowmode
 
