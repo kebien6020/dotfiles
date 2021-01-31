@@ -29,4 +29,7 @@ Plug 'jreybert/vimagit'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-surround'
 
+" Misc
+Plug 'christoomey/vim-tmux-navigator' " Seamless tmux navigation, requires tmux keybindings
+
 call plug#end()
