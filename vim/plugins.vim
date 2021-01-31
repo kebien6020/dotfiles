@@ -27,5 +27,6 @@ Plug 'jreybert/vimagit'
 
 " Text objects
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'tpope/vim-surround'
 
 call plug#end()
