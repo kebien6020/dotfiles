@@ -15,10 +15,11 @@ source $DOT/vim/autocommands.vim
 source $DOT/vim/ruler.vim
 
 source $DOT/vim/airline.vim
+source $DOT/vim/coc.vim
 source $DOT/vim/ctrlp.vim
+source $DOT/vim/nerdcommenter.vim
 source $DOT/vim/nerdtree.vim
 source $DOT/vim/onedark.vim
-source $DOT/vim/syntastic.vim
 
 colorscheme onedark
 

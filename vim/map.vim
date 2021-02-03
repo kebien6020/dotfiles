@@ -1,6 +1,11 @@
 " Remappings
 inoremap jk <Esc>
 
+" Leader
+nnoremap <Space> <Nop>
+vnoremap <Space> <Nop>
+let mapleader = " "
+
 " Use semicolon as colon
 nnoremap ; :
 " Gain semicolon back using ;;
@@ -11,6 +16,7 @@ noremap <C-PageUp> :bprevious<CR>
 " <leader>. to repeat the last edit on the next occurence of the word
 nnoremap <leader>. :let @/=@"<cr>/<cr>cgn<c-r>.<esc>
 
+" Move up/down with Alt-j Alt-k
 execute "set <M-j>=\ej"
 execute "set <M-k>=\ek"
 nnoremap <M-j> :m .+1<CR>==

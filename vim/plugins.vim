@@ -3,12 +3,11 @@ call plug#begin('~/.vim/plugged')
 " Sensible defaults
 Plug 'tpope/vim-sensible'
 
+" Generic autocompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " JS/TS
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'Quramy/tsuquyomi'
+Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 " Theme
 Plug 'joshdick/onedark.vim'
@@ -18,6 +17,9 @@ Plug 'vim-airline/vim-airline'
 
 " File management
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Git
@@ -30,6 +32,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-surround'
 
 " Misc
+Plug 'preservim/nerdcommenter'       " Comment like in VSCode
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux navigation, requires tmux keybindings
 
 call plug#end()
