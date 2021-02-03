@@ -41,6 +41,7 @@
 "\eOH": beginning-of-line
 "\eOF": end-of-line
 
+# Fix Ctrl+Left and Ctrl+Right on some terminals
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
 
@@ -77,4 +78,19 @@ $if Bash
   Space: magic-space
 $endif
 
+set editing-mode vi
+# Restore c-x c-r to reload this file
+"\C-x\C-r": re-read-init-file
 
+set show-mode-in-prompt on
+
+$if term=linux
+	set vi-ins-mode-string \1\e[?0c\2
+	set vi-cmd-mode-string \1\e[?8c\2
+$else
+	set vi-ins-mode-string \1\e[6 q\2
+	set vi-cmd-mode-string \1\e[2 q\2
+$endif
+
+set keymap vi-insert
+"jk": vi-movement-mode
