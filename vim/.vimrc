@@ -14,8 +14,6 @@ source $DOT/vim/color.vim
 source $DOT/vim/autocommands.vim
 source $DOT/vim/ruler.vim
 
-source $DOT/vim/php.vim
-
 source $DOT/vim/airline.vim
 source $DOT/vim/coc.vim
 source $DOT/vim/ctrlp.vim
