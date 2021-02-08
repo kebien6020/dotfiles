@@ -9,6 +9,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " JS/TS
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
+" PHP
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/vim-hug-neovim-rpc'
+" Plug 'roxma/nvim-yarp'
+" Plug 'phpactor/phpactor'
+" Plug 'phpactor/ncm2-phpactor'
+
 " Theme
 Plug 'joshdick/onedark.vim'
 
