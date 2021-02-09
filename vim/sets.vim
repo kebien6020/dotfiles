@@ -8,6 +8,7 @@ set encoding=utf-8
 set scrolloff=4
 set belloff=all
 set timeout timeoutlen=100 ttimeoutlen=50
+set nohlsearch
 " Mode is shown in airline
 set noshowmode
 " Save with LF, try to read as LF or as CRLF
