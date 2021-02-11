@@ -28,7 +28,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -42,7 +42,8 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-surround'
 
 " Misc
-Plug 'preservim/nerdcommenter'       " Comment like in VSCode
+Plug 'joereynolds/gq.vim'             " Language aware gq formatting
+Plug 'preservim/nerdcommenter'        " Comment like in VSCode
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux navigation, requires tmux keybindings
 
 call plug#end()
