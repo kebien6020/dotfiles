@@ -13,6 +13,8 @@ set nohlsearch
 set noshowmode
 " Save with LF, try to read as LF or as CRLF
 set fileformats=unix,dos
+" All whitespace when doing :set list
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " TABS
 filetype plugin indent on
