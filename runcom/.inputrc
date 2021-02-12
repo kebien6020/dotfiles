@@ -68,6 +68,9 @@ set keymap vi-insert
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
 
+# Ctrl+Alt+e for shell expansion
+"\e\C-e": shell-expand-line
+
 set keymap vi
 # the following line is actually
 # equivalent to "\C-?": delete-char
@@ -92,3 +95,6 @@ set keymap vi
 # Fix Ctrl+Left and Ctrl+Right on some terminals
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
+
+# Ctrl+Alt+e for shell expansion
+"\e\C-e": shell-expand-line
