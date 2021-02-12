@@ -14,3 +14,10 @@ alias ls='ls -hF --color=tty'                 # classify files in colour
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
+
+# Shorthand for date: Use like `d +5min` -> 2021-02-11 03:55:10
+alias d="date '+%D %T' -d"
+
+# Curl for JSON REST APIs
+alias jcurl='curl -H "Accept: application/json" -H "Content-Type: application/json"'
+alias acurl='curl -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN"'
