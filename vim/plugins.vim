@@ -45,5 +45,6 @@ Plug 'tpope/vim-surround'
 Plug 'joereynolds/gq.vim'             " Language aware gq formatting
 Plug 'preservim/nerdcommenter'        " Comment like in VSCode
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux navigation, requires tmux keybindings
+Plug 'tpope/vim-obsession'            " Sessions. tmux-ressurrect will restore vim sessions
 
 call plug#end()
