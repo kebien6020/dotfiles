@@ -14,3 +14,6 @@ source "$DOT/system/prompt.sh"
 source "$DOT/system/shell.bash"
 source "$DOT/system/os.sh"
 source "$DOT/system/colored-man.sh"
+
+# Source local settings for this particular system
+[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
