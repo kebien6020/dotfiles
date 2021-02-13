@@ -21,3 +21,6 @@ alias d="date '+%D %T' -d"
 # Curl for JSON REST APIs
 alias jcurl='curl -H "Accept: application/json" -H "Content-Type: application/json"'
 alias acurl='curl -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN"'
+
+# Restore vim session
+alias svim='vim -S Session.vim'
