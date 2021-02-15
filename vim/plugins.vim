@@ -35,6 +35,8 @@ Plug 'junegunn/fzf.vim'
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+" Interactive git checkout with :Merginal
+Plug 'idanarye/vim-merginal'
 Plug 'jreybert/vimagit'
 
 " Text objects
