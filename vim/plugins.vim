@@ -14,6 +14,12 @@ Plug 'mxw/vim-jsx'
 " Purescript
 Plug 'purescript-contrib/purescript-vim'
 
+" Rescript
+Plug 'rescript-lang/vim-rescript'
+
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+
 " Theme
 Plug 'joshdick/onedark.vim'
 

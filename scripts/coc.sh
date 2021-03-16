@@ -68,4 +68,20 @@ cat $C_CONFIG | jq "$(cat <<EOF
 EOF
 )" -r > $C_CONFIG
 
+# Rescript
+cat $C_CONFIG | jq "$(cat <<EOF
+. * {
+  languageserver: {
+    "rescript": {
+      "enable": true,
+      "module": "~/.vim/plugged/vim-rescript/rescript-vscode/extension/server/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["rescript"],
+      "rootPatterns": ["bsconfig.json"]
+    }
+  }
+}
+EOF
+)" -r > $C_CONFIG
+
 cat $C_CONFIG | jq .
