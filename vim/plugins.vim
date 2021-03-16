@@ -17,6 +17,9 @@ Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 " Plug 'phpactor/phpactor'
 " Plug 'phpactor/ncm2-phpactor'
 
+" Purescript
+Plug 'purescript-contrib/purescript-vim'
+
 " Theme
 Plug 'joshdick/onedark.vim'
 
