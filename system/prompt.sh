@@ -81,7 +81,11 @@ bash_prompt_command() {
   fi
 
   # Parse Git branch name
-  P_GIT=$(parse_git_branch)
+  if [ -z ${P_GIT_DISABLE+x} ]; then
+    P_GIT=$(parse_git_branch)
+  else
+    P_GIT=''
+  fi
 
   # Exit code
   if [[ $EXIT_CODE != 0 ]]; then
