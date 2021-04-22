@@ -29,3 +29,4 @@ noremap  <silent> <C-PageDown> :bnext<CR>
 noremap  <silent> <C-PageUp> :bprevious<CR>
 nnoremap <silent> <leader>j :bprevious<CR>
 nnoremap <silent> <leader>k :bnext<CR>
+nnoremap <silent> <C-x> :bdelete<CR>
