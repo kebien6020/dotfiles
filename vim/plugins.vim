@@ -15,10 +15,10 @@ Plug 'mxw/vim-jsx'
 Plug 'purescript-contrib/purescript-vim'
 
 " Rescript
-Plug 'rescript-lang/vim-rescript'
+" Plug 'rescript-lang/vim-rescript'
 
 " Elixir
-Plug 'elixir-editors/vim-elixir'
+" Plug 'elixir-editors/vim-elixir'
 
 " Theme
 Plug 'joshdick/onedark.vim'
@@ -47,7 +47,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-surround'
 
 " Misc
-Plug 'joereynolds/gq.vim'             " Language aware gq formatting
 Plug 'preservim/nerdcommenter'        " Comment like in VSCode
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux navigation, requires tmux keybindings
 Plug 'tpope/vim-obsession'            " Sessions. tmux-ressurrect will restore vim sessions
