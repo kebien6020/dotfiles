@@ -2,7 +2,9 @@
 alias df='df -h'
 alias du='du -h'
 
-alias less='less -r'                          # raw control characters
+# Misc
+alias less='less -R'                          # raw control characters
+alias cl='clear'
 
 # Color
 alias grep='grep --color'                     # show differences in colour
