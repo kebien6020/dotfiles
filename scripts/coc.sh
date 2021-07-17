@@ -3,6 +3,8 @@ set -e
 # set -x
 
 C_CONFIG=~/.vim/coc-settings.json
+mkdir -p ~/.vim
+mkdir -p ~/.config/coc
 touch $C_CONFIG
 
 # eslint config

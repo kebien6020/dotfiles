@@ -22,4 +22,4 @@ source $DOT/vim/nerdcommenter.vim
 source $DOT/vim/nerdtree.vim
 source $DOT/vim/onedark.vim
 
-colorscheme onedark
+silent! colorscheme onedark
