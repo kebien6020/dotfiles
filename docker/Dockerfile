@@ -4,7 +4,7 @@ FROM debian:testing
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y \
-      git curl jq \
+      git curl jq sudo \
       vim tmux \
       gcc g++ clang clangd \
       make cmake \
