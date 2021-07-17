@@ -8,6 +8,7 @@ RUN apt-get update -y && \
       vim tmux \
       gcc g++ clang clangd \
       make cmake \
+      silversearcher-ag fzf \
       apt-transport-https ca-certificates gnupg lsb-release && \
     curl -fsSL https://download.docker.com/linux/debian/gpg \
       | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
@@ -23,11 +24,12 @@ RUN useradd -ms /bin/bash kevin && \
 USER kevin
 WORKDIR /home/kevin
 
-COPY . .dotfiles
+COPY --chown=kevin:kevin . .dotfiles
 RUN sh ~/.dotfiles/scripts/plug.sh && \
     sh ~/.dotfiles/scripts/tpm.sh && \
     sh ~/.dotfiles/scripts/coc.sh && \
     sh ~/.dotfiles/scripts/symlinks.sh
-# RUN echo -e 'PlugInstall\nqa' > /tmp/cmds && \
-#     vim -T dumb -n -i NONE -e -S /tmp/cmds && \
-#     rm /tmp/cmds
+RUN vim +PlugInstall +qa
+
+VOLUME ["/home/kevin/projects"]
+ENV TERM=xterm-256color
