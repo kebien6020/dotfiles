@@ -4,7 +4,7 @@ FROM debian:testing
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y \
-      sudo man \
+      sudo man file tree locales xz-utils bzip2 \
       git curl jq \
       vim tmux \
       gcc g++ clang clangd \
@@ -20,7 +20,10 @@ RUN apt-get update -y && \
     apt-get install -y docker-ce-cli nodejs && \
     useradd -ms /bin/bash kevin && \
     usermod -aG sudo kevin && \
-    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
+    sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
 USER kevin
 WORKDIR /home/kevin
 
@@ -34,4 +37,6 @@ RUN sh ~/.dotfiles/scripts/plug.sh && \
 
 VOLUME ["/home/kevin/projects"]
 ENV TERM=xterm-256color \
-    LANG=en_US.UTF-8
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8
