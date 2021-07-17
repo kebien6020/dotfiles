@@ -32,4 +32,5 @@ RUN sh ~/.dotfiles/scripts/plug.sh && \
 RUN vim +PlugInstall +qa
 
 VOLUME ["/home/kevin/projects"]
-ENV TERM=xterm-256color
+ENV TERM=xterm-256color \
+    LANG=en_US.UTF-8
