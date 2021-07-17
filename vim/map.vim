@@ -30,3 +30,9 @@ noremap  <silent> <C-PageUp> :bprevious<CR>
 nnoremap <silent> <leader>j :bprevious<CR>
 nnoremap <silent> <leader>k :bnext<CR>
 nnoremap <silent> <C-x> :bdelete<CR>
+
+" Leader shortcuts
+nnoremap <silent> <leader>l :set list!<CR>
+nnoremap <silent> <leader>q :bdelete<CR>
+nnoremap <silent> <leader>r :so ~/.vimrc<CR>
+nnoremap <silent> <leader>g :Git<CR>
