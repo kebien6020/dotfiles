@@ -11,14 +11,12 @@ RUN apt-get update -y && \
       make cmake \
       silversearcher-ag fzf \
       awscli \
+      openjdk-17-jdk rlwrap \
       apt-transport-https ca-certificates gnupg lsb-release && \
-    curl -fsSL https://download.docker.com/linux/debian/gpg \
-      | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
-    echo \
-      "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
-      > /etc/apt/sources.list.d/docker.list && \
+    curl -fsSL https://get.docker.com | bash - && \
     curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y docker-ce-cli nodejs && \
+    curl -fsSL https://download.clojure.org/install/linux-install-1.10.3.1087.sh | bash - && \
+    apt-get install -y nodejs && \
     useradd -ms /bin/bash kevin && \
     usermod -aG sudo kevin && \
     echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
