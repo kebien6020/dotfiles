@@ -1,5 +1,5 @@
 # syntax:docker/dockerfile:1
-FROM debian:testing
+FROM debian:bullseye-backports
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
