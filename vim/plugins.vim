@@ -20,6 +20,9 @@ Plug 'purescript-contrib/purescript-vim'
 " Elixir
 " Plug 'elixir-editors/vim-elixir'
 
+" Clojure
+Plug 'bhurlow/vim-parinfer'
+
 " Theme
 Plug 'joshdick/onedark.vim'
 

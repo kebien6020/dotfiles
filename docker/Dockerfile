@@ -1,5 +1,5 @@
 # syntax:docker/dockerfile:1
-FROM debian:bullseye-backports
+FROM debian:stable-backports
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
@@ -16,6 +16,7 @@ RUN apt-get update -y && \
     curl -fsSL https://get.docker.com | bash - && \
     curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
     curl -fsSL https://download.clojure.org/install/linux-install-1.10.3.1087.sh | bash - && \
+    curl -fsSL https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install | bash - && \
     apt-get install -y nodejs && \
     useradd -ms /bin/bash kevin && \
     usermod -aG sudo kevin && \

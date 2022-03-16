@@ -87,4 +87,19 @@ cat $C_CONFIG | jq "$(cat <<EOF
 EOF
 )" -r > $C_CONFIG
 
+# Clojure
+cat $C_CONFIG | jq "$(cat <<EOF
+. * {
+  languageserver: {
+    "clojure": {
+      "command": "clojure-lsp",
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj", "deps.edn"],
+      "additionalSchemes": ["jar", "zipfile"]
+    }
+  }
+}
+EOF
+)" -r > $C_CONFIG
+
 cat $C_CONFIG | jq .
