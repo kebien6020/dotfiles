@@ -26,3 +26,8 @@ alias acurl='curl -H "Accept: application/json" -H "Content-Type: application/js
 
 # Restore vim session
 alias svim='vim -S Session.vim'
+
+# Run dot container
+alias dot-disp='docker run --name dot --rm -itd -v projects:/home/kevin/projects -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.ssh:/home/kevin/.ssh --network host ghcr.io/kebien6020/dotfiles tail -f /dev/null'
+alias dot='docker exec -it dot bash'
+alias dot-rm='docker rm -f dot'
