@@ -44,3 +44,18 @@ set wildcharm=<C-Z>
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
 set path+=**
+
+" Markdown code block syntax highlighting
+let g:markdown_fenced_languages = [
+  \ 'css',
+  \ 'erb=eruby',
+  \ 'javascript',
+  \ 'js=javascript',
+  \ 'json',
+  \ 'ruby',
+  \ 'sass',
+  \ 'xml',
+  \ 'html',
+  \ 'diff',
+  \ 'rego',
+  \ ]
