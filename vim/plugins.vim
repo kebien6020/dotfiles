@@ -14,6 +14,9 @@ Plug 'mxw/vim-jsx'
 " Purescript
 Plug 'purescript-contrib/purescript-vim'
 
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Rescript
 " Plug 'rescript-lang/vim-rescript'
 
@@ -44,6 +47,7 @@ Plug 'tpope/vim-fugitive'
 " Interactive git checkout with :Merginal
 Plug 'idanarye/vim-merginal'
 Plug 'jreybert/vimagit'
+Plug 'stsewd/fzf-checkout.vim'
 
 " Text objects
 Plug 'michaeljsmith/vim-indent-object'

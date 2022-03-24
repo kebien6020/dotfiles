@@ -35,4 +35,4 @@ nnoremap <silent> <C-x> :bdelete<CR>
 nnoremap <silent> <leader>l :set list!<CR>
 nnoremap <silent> <leader>q :bdelete<CR>
 nnoremap <silent> <leader>r :so ~/.vimrc<CR>
-nnoremap <silent> <leader>g :Git<CR>
+nnoremap <silent> <leader>g :ToggleGit<CR>
