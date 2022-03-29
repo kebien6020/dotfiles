@@ -15,6 +15,8 @@ set noshowmode
 set fileformats=unix,dos
 " All whitespace when doing :set list
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+" System clipboard
+set clipboard=unnamedplus
 
 " TABS
 filetype plugin indent on
