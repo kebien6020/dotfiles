@@ -32,3 +32,5 @@ alias dot-disp='docker run --name dot --hostname disp --rm -itd -v projects:/hom
 alias dot='docker exec -it dot bash'
 alias dot-rm='docker rm -f dot'
 alias dot-pull='docker pull ghcr.io/kebien6020/dotfiles'
+
+alias gswitch='git branch -a --format="%(refname:short)" | fzf --preview="git lg {}" --bind="enter:execute(git switch {})" --preview-window=up'
