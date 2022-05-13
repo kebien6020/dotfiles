@@ -17,6 +17,12 @@ set fileformats=unix,dos
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " System clipboard
 set clipboard=unnamedplus
+" Thin cursor on insert mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+set conceallevel=2
+
 
 " TABS
 filetype plugin indent on
