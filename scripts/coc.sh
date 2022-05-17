@@ -102,4 +102,20 @@ cat $C_CONFIG | jq "$(cat <<EOF
 EOF
 )" -r > $C_CONFIG
 
+# Terraform
+cat $C_CONFIG | jq "$(cat <<EOF
+. * {
+  languageserver: {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform"],
+      "rootPatterns": ["*.tf"]
+    }
+  }
+}
+EOF
+)" -r > $C_CONFIG
+
+
 cat $C_CONFIG | jq .

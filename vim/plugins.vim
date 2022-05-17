@@ -26,6 +26,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Clojure
 Plug 'bhurlow/vim-parinfer'
 
+" Terraform
+Plug 'hashivim/vim-terraform'
+
 " Theme
 Plug 'joshdick/onedark.vim'
 
