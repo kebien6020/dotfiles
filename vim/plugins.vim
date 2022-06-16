@@ -29,6 +29,9 @@ Plug 'bhurlow/vim-parinfer'
 " Terraform
 Plug 'hashivim/vim-terraform'
 
+" Rust
+Plug 'rust-lang/rust.vim'
+
 " Theme
 Plug 'joshdick/onedark.vim'
 
