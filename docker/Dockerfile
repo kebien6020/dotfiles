@@ -29,10 +29,10 @@ WORKDIR /home/kevin
 
 COPY --chown=kevin:kevin . .dotfiles
 COPY --chown=kevin:kevin docker/docker-setup.sh docker-setup.sh
-RUN sh ~/.dotfiles/scripts/plug.sh && \
-    sh ~/.dotfiles/scripts/tpm.sh && \
-    sh ~/.dotfiles/scripts/coc.sh && \
-    sh ~/.dotfiles/scripts/symlinks.sh && \
+RUN ~/.dotfiles/scripts/plug.sh && \
+    ~/.dotfiles/scripts/tpm.sh && \
+    ~/.dotfiles/scripts/coc.sh && \
+    ~/.dotfiles/scripts/symlinks.sh && \
     vim +PlugInstall +qa
 
 VOLUME ["/home/kevin/projects"]
