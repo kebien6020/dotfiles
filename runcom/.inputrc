@@ -98,3 +98,6 @@ set keymap vi
 
 # Ctrl+Alt+e for shell expansion
 "\e\C-e": shell-expand-line
+
+# Ctrl-l to redraw line
+"\C-l": redraw-current-line

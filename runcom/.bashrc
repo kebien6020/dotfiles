@@ -1,3 +1,8 @@
+# Profiling
+# PS4='+ $(/opt/homebrew/opt/coreutils/bin/gdate "+%s.%N")\011 '
+# exec 3>&2 2>/tmp/bashstart.$$.log
+# set -x
+
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
@@ -17,3 +22,7 @@ source "$DOT/system/colored-man.sh"
 
 # Source local settings for this particular system
 [[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
+
+# Stop Profile
+# set +x
+# exec 2>&3 3>&-
