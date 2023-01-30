@@ -21,6 +21,8 @@ return require('packer').startup(function (use)
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
 
+	use 'mfussenegger/nvim-jdtls' -- Java additional support
+
 	-- LSP
 	use {
 	  'VonHeikemen/lsp-zero.nvim',
