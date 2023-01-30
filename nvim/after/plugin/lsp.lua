@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local ih = require('lsp-inlayhints')
 
 lsp.preset('recommended')
 
@@ -10,7 +11,7 @@ lsp.ensure_installed({
 	'clangd',
 })
 
-lsp.on_attach(function(_, bufnr)
+local attach_bindings = function(_, bufnr)
 	local opts = function(desc) return { buffer = bufnr, remap = false, desc = desc } end
 
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts('LSP Go to definition'))
@@ -24,9 +25,46 @@ lsp.on_attach(function(_, bufnr)
 	vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts('LSP Rename'))
 	vim.keymap.set('n', '<leader>sr', vim.lsp.buf.rename, opts('LSP Rename'))
 	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts('LSP Signature help'))
-end)
+end
+
+lsp.on_attach(attach_bindings)
 
 -- Fix LSP for nvim lua files
 lsp.nvim_workspace()
 
+
+-- Inlay hints
+lsp.configure('tsserver', {
+  on_attach = function(c, b)
+    ih.on_attach(c, b)
+	attach_bindings(c, b)
+  end,
+  settings = {
+    javascript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
+    },
+    typescript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
+    },
+  },
+})
+
+ih.setup()
 lsp.setup()
+
