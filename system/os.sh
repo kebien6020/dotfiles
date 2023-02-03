@@ -3,12 +3,12 @@ function clip() {
   case "$OSTYPE" in
     linux*)
       if grep -q Microsoft /proc/version; then
-        /mnt/c/Windows/System32/clip.exe $@
+        /mnt/c/Windows/System32/clip.exe "$@"
       else
-        xsel -i --clipboard $@
+        xsel -i --clipboard "$@"
       fi
       ;;
-    cygwin*) clip.exe $@ ;;
+    cygwin*) clip.exe "$@" ;;
   esac
 }
 
