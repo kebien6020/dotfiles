@@ -32,9 +32,10 @@ local lsp_attach = function(c, b)
 	vim.keymap.set('n', '<leader>sr', vim.lsp.buf.rename, opts('LSP Rename'))
 	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts('LSP Signature help'))
 
-	vim.api.nvim_create_autocmd('CursorHold', { buffer = b, callback = vim.lsp.buf.document_highlight } )
-	vim.api.nvim_create_autocmd('CursorMoved', { buffer = b, callback = vim.lsp.buf.clear_references } )
-	vim.api.nvim_create_autocmd('BufWritePre', { buffer = b, callback = function () vim.lsp.buf.format { async = false} end } )
+	vim.api.nvim_create_autocmd('CursorHold', { buffer = b, callback = vim.lsp.buf.document_highlight })
+	vim.api.nvim_create_autocmd('CursorMoved', { buffer = b, callback = vim.lsp.buf.clear_references })
+	vim.api.nvim_create_autocmd('BufWritePre',
+		{ buffer = b, callback = function() vim.lsp.buf.format { async = false } end })
 
 	ih.on_attach(c, b)
 end
@@ -42,20 +43,20 @@ end
 -- vim.lsp.set_log_level('debug')
 
 require('mason-lspconfig').setup_handlers({
-	function (server_name)
+	function(server_name)
 		lspconfig[server_name].setup {
 			on_attach = lsp_attach,
 			capabilities = lsp_capabilities,
 		}
 	end,
-	['jdtls'] = function ()
+	['jdtls'] = function()
 		lspconfig.jdtls.setup({
 			on_attach = function(c, b)
 				lsp_attach(c, b)
 
 				local config = {
-					cmd = {'jdtls'},
-					root_dir = vim.fs.dirname(vim.fs.find({'.gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+					cmd = { 'jdtls' },
+					root_dir = vim.fs.dirname(vim.fs.find({ '.gradlew', '.git', 'mvnw' }, { upward = true })[1]),
 				}
 				require('jdtls').start_or_attach(config)
 
@@ -68,7 +69,7 @@ require('mason-lspconfig').setup_handlers({
 					},
 					configuration = {
 						checkProjectSettingsExclusions = true,
-						updateBuildConfiguration =  "interactive",
+						updateBuildConfiguration = "interactive",
 					},
 					import = {
 						maven = {
@@ -85,69 +86,68 @@ require('mason-lspconfig').setup_handlers({
 			},
 		})
 	end,
-	['tsserver'] = function ()
+	['tsserver'] = function()
 		lspconfig.tsserver.setup({
-		  on_attach = lsp_attach,
-		  settings = {
-			javascript = {
-			  inlayHints = {
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHints = true,
-			  },
+			on_attach = lsp_attach,
+			settings = {
+				javascript = {
+					inlayHints = {
+						includeInlayEnumMemberValueHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
+				typescript = {
+					inlayHints = {
+						includeInlayEnumMemberValueHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
 			},
-			typescript = {
-			  inlayHints = {
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHints = true,
-			  },
-			},
-		  },
 		})
 	end,
-   ["sumneko_lua"] = function ()
-	   lspconfig.sumneko_lua.setup {
-		   on_attach = lsp_attach,
-		   settings = {
-			   Lua = {
-				   diagnostics = {
-					   globals = { "vim" }
-				   }
-			   }
-		   }
-	   }
-   end,
-   ['gopls'] = function ()
+	["sumneko_lua"] = function()
+		lspconfig.sumneko_lua.setup {
+			on_attach = lsp_attach,
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" }
+					}
+				}
+			}
+		}
+	end,
+	['gopls'] = function()
 		lspconfig.gopls.setup {
 			on_attach = lsp_attach,
-			cmd = {"gopls", "serve"},
-			filetypes = {"go", "gomod"},
+			cmd = { "gopls", "serve" },
+			filetypes = { "go", "gomod" },
 			root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 			settings = {
 				gopls = {
 					hints = {
 						-- assignVariableTypes = true,
-						constantValues =  true,
-						functionTypeParameters =  true,
+						constantValues = true,
+						functionTypeParameters = true,
 						parameterNames = true,
 						rangeVariableTypes = true,
 					},
 				},
 			},
 		}
-   end,
+	end,
 })
 
 -- Start Inlay Hint provider
 ih.setup()
 vim.cmd.hi('LspInlayHint guifg=#00ffff guibg=#000000')
-

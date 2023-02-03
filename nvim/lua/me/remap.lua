@@ -1,11 +1,12 @@
 vim.g.mapleader = " "
 -- Buffer
-vim.keymap.set("n", "<leader>j", vim.cmd.bn, {desc = 'Next buffer'})
-vim.keymap.set("n", "<leader>k", vim.cmd.bp, {desc = 'Previous buffer'})
-vim.keymap.set("n", "<leader>q", vim.cmd.bd, {desc = 'Close buffer'})
+vim.keymap.set("n", "<leader>j", vim.cmd.bn, { desc = 'Next buffer' })
+vim.keymap.set("n", "<leader>k", vim.cmd.bp, { desc = 'Previous buffer' })
+vim.keymap.set("n", "<leader>q", vim.cmd.bd, { desc = 'Close buffer' })
 -- Misc
-vim.keymap.set("n", "<leader>l", function () vim.wo.list = not vim.wo.list end, {desc = 'Toggle showing invisible characters', remap = false})
-vim.keymap.set("n", "<leader>/", vim.cmd.nohlsearch, {desc = 'Remove search highlight'})
+vim.keymap.set("n", "<leader>l", function() vim.wo.list = not vim.wo.list end,
+	{ desc = 'Toggle showing invisible characters', remap = false })
+vim.keymap.set("n", "<leader>/", vim.cmd.nohlsearch, { desc = 'Remove search highlight' })
 -- Nicer versions of default maps
 vim.keymap.set('n', 'J', 'mzJ`z') -- J keeps cursor in place
 vim.keymap.set('n', '<C-d>', '<C-d>zz') -- Auto center <C-d> <C-z> n and N
