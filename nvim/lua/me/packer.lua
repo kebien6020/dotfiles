@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 	use 'navarasu/onedark.nvim' -- Theme
-	use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } } -- Parsing framework
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Parsing framework
 	use 'nvim-treesitter/playground' -- Explore tree-sitter AST :TSPlaygroundToggle
 	use 'mbbill/undotree' -- Advanced undo
 	use 'tpope/vim-fugitive' -- Git integration
