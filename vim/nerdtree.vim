@@ -1,1 +1,1 @@
-map <C-n> :NERDTreeToggle<CR>
+map <silent> <C-n> :silent! NERDTreeToggle<CR>

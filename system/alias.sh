@@ -34,3 +34,9 @@ alias dot-rm='docker rm -f dot'
 alias dot-pull='docker pull ghcr.io/kebien6020/dotfiles'
 
 alias gswitch='git branch -a --format="%(refname:short)" | fzf --preview="git lg {}" --bind="enter:execute(git switch {})" --preview-window=up'
+
+# kube
+alias ketall='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found --all-namespaces'
+
+# neovim
+alias nv='nvim'

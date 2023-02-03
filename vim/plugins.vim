@@ -32,6 +32,9 @@ Plug 'hashivim/vim-terraform'
 " Rust
 Plug 'rust-lang/rust.vim'
 
+" Java
+Plug 'puremourning/vimspector'
+
 " Theme
 Plug 'joshdick/onedark.vim'
 

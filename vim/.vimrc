@@ -2,7 +2,7 @@
 set nocompatible
 
 " Start from vim defaults (instead of vi defaults)
-source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/defaults.vim
 
 " Source user configs
 let $DOT = $HOME . '/.dotfiles'
@@ -23,5 +23,6 @@ source $DOT/vim/go.vim
 source $DOT/vim/nerdcommenter.vim
 source $DOT/vim/nerdtree.vim
 source $DOT/vim/onedark.vim
+source $DOT/vim/vimspector.vim
 
 silent! colorscheme onedark

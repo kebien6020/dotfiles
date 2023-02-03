@@ -2,7 +2,9 @@ set number
 set relativenumber
 set nu
 set mouse=a
-set ttymouse=sgr
+if !has('nvim')
+	set ttymouse=sgr
+endif
 set hidden
 set encoding=utf-8
 set scrolloff=4
@@ -16,13 +18,16 @@ set fileformats=unix,dos
 " All whitespace when doing :set list
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " System clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 " Thin cursor on insert mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-
+" Time to trigger a CursorHold
+set updatetime=1000
+" Conceal
 set conceallevel=2
-
+" Allow for local .exrc file for project-specific settings
+set exrc
 
 " TABS
 filetype plugin indent on
@@ -31,7 +36,7 @@ set tabstop=2
 " when indenting with '>', use 2 spaces width
 set shiftwidth=2
 " On pressing tab, insert 2 spaces
-set expandtab
+set noexpandtab
 
 " Splits
 set splitbelow

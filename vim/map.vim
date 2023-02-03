@@ -15,8 +15,8 @@ nnoremap ;; ;
 nnoremap <leader>. :let @/=@"<cr>/<cr>cgn<c-r>.<esc>
 
 " Move up/down with Alt-j Alt-k
-execute "set <M-j>=\ej"
-execute "set <M-k>=\ek"
+" execute "set <M-j>=\ej"
+" execute "set <M-k>=\ek"
 nnoremap <M-j> :m .+1<CR>==
 nnoremap <M-k> :m .-2<CR>==
 inoremap <M-j> <Esc>:m .+1<CR>==gi
