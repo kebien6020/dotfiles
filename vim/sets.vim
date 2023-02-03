@@ -23,7 +23,7 @@ set clipboard=unnamed
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 " Time to trigger a CursorHold
-set updatetime=1000
+set updatetime=200
 " Conceal
 set conceallevel=2
 " Allow for local .exrc file for project-specific settings
