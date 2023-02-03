@@ -1,18 +1,24 @@
-local lsp = require('lsp-zero')
 local ih = require('lsp-inlayhints')
+local lspconfig = require('lspconfig')
+local util = require('lspconfig/util')
 
-lsp.preset('recommended')
+require('mason').setup()
 
-lsp.ensure_installed({
-	'tsserver',
-	'eslint',
-	'sumneko_lua',
-	'rust_analyzer',
-	'clangd',
+require('mason-lspconfig').setup({
+	ensure_installed = {
+		'tsserver',
+		'eslint',
+		'sumneko_lua',
+		'rust_analyzer',
+		'clangd',
+		'gopls',
+	}
 })
 
-local attach_bindings = function(_, bufnr)
-	local opts = function(desc) return { buffer = bufnr, remap = false, desc = desc } end
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+local lsp_attach = function(c, b)
+	local opts = function(desc) return { buffer = b, remap = false, desc = desc } end
 
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts('LSP Go to definition'))
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts('LSP Hover'))
@@ -25,46 +31,123 @@ local attach_bindings = function(_, bufnr)
 	vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts('LSP Rename'))
 	vim.keymap.set('n', '<leader>sr', vim.lsp.buf.rename, opts('LSP Rename'))
 	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts('LSP Signature help'))
+
+	vim.api.nvim_create_autocmd('CursorHold', { buffer = b, callback = vim.lsp.buf.document_highlight } )
+	vim.api.nvim_create_autocmd('CursorMoved', { buffer = b, callback = vim.lsp.buf.clear_references } )
+	vim.api.nvim_create_autocmd('BufWritePre', { buffer = b, callback = function () vim.lsp.buf.format { async = false} end } )
+
+	ih.on_attach(c, b)
 end
 
-lsp.on_attach(attach_bindings)
+-- vim.lsp.set_log_level('debug')
 
--- Fix LSP for nvim lua files
-lsp.nvim_workspace()
+require('mason-lspconfig').setup_handlers({
+	function (server_name)
+		lspconfig[server_name].setup {
+			on_attach = lsp_attach,
+			capabilities = lsp_capabilities,
+		}
+	end,
+	['jdtls'] = function ()
+		lspconfig.jdtls.setup({
+			on_attach = function(c, b)
+				lsp_attach(c, b)
 
+				local config = {
+					cmd = {'jdtls'},
+					root_dir = vim.fs.dirname(vim.fs.find({'.gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+				}
+				require('jdtls').start_or_attach(config)
 
--- Inlay hints
-lsp.configure('tsserver', {
-  on_attach = function(c, b)
-    ih.on_attach(c, b)
-	attach_bindings(c, b)
-  end,
-  settings = {
-    javascript = {
-      inlayHints = {
-        includeInlayEnumMemberValueHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
-      },
-    },
-    typescript = {
-      inlayHints = {
-        includeInlayEnumMemberValueHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
-      },
-    },
-  },
+			end,
+			-- cmd = { '/Users/kevin/.local/share/nvim/mason/bin/jdtls' },
+			init_options = {
+				settings = {
+					java = {
+						home = '/opt/homebrew/Cellar/openjdk/19.0.1/libexec/openjdk.jdk/Contents/Home/',
+					},
+					configuration = {
+						checkProjectSettingsExclusions = true,
+						updateBuildConfiguration =  "interactive",
+					},
+					import = {
+						maven = {
+							enabled = true,
+						},
+					},
+					inlayHints = {
+						parameterNames = {
+							enabled = 'literals', -- none|literals|all
+							exclusions = {}, -- Function patterns
+						},
+					},
+				},
+			},
+		})
+	end,
+	['tsserver'] = function ()
+		lspconfig.tsserver.setup({
+		  on_attach = lsp_attach,
+		  settings = {
+			javascript = {
+			  inlayHints = {
+				includeInlayEnumMemberValueHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayVariableTypeHints = true,
+			  },
+			},
+			typescript = {
+			  inlayHints = {
+				includeInlayEnumMemberValueHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayVariableTypeHints = true,
+			  },
+			},
+		  },
+		})
+	end,
+   ["sumneko_lua"] = function ()
+	   lspconfig.sumneko_lua.setup {
+		   on_attach = lsp_attach,
+		   settings = {
+			   Lua = {
+				   diagnostics = {
+					   globals = { "vim" }
+				   }
+			   }
+		   }
+	   }
+   end,
+   ['gopls'] = function ()
+		lspconfig.gopls.setup {
+			on_attach = lsp_attach,
+			cmd = {"gopls", "serve"},
+			filetypes = {"go", "gomod"},
+			root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+			settings = {
+				gopls = {
+					hints = {
+						-- assignVariableTypes = true,
+						constantValues =  true,
+						functionTypeParameters =  true,
+						parameterNames = true,
+						rangeVariableTypes = true,
+					},
+				},
+			},
+		}
+   end,
 })
 
+-- Start Inlay Hint provider
 ih.setup()
-lsp.setup()
+vim.cmd.hi('LspInlayHint guifg=#00ffff guibg=#000000')
 
