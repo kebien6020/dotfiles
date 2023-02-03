@@ -20,9 +20,10 @@ alias l='ls -CF'                              #
 # Shorthand for date: Use like `d +5min` -> 2021-02-11 03:55:10
 alias d="date '+%D %T' -d"
 
-# Curl for JSON REST APIs
-alias jcurl='curl -H "Accept: application/json" -H "Content-Type: application/json"'
-alias acurl='curl -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN"'
+# Curl
+alias curlf='curl --fail-with-body -sSL'
+alias jcurl='curlf -H "Accept: application/json" -H "Content-Type: application/json"'
+alias acurl='acurl -H "Authorization: Bearer $TOKEN"'
 
 # Restore vim session
 alias svim='vim -S Session.vim'
