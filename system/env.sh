@@ -1,7 +1,7 @@
 # Don't put duplicate lines in the history.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export DOT=$HOME/.dotfiles
 export GPG_TTY; GPG_TTY="$(tty)"
 
