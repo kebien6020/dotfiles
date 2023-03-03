@@ -8,7 +8,7 @@ require('mason-lspconfig').setup({
 	ensure_installed = {
 		'tsserver',
 		'eslint',
-		'sumneko_lua',
+		'lua_ls',
 		'rust_analyzer',
 		'clangd',
 		'gopls',
@@ -118,8 +118,8 @@ require('mason-lspconfig').setup_handlers({
 			},
 		})
 	end,
-	["sumneko_lua"] = function()
-		lspconfig.sumneko_lua.setup {
+	["lua_ls"] = function()
+		lspconfig.lua_ls.setup {
 			on_attach = lsp_attach,
 			settings = {
 				Lua = {
