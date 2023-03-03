@@ -56,6 +56,7 @@ require('mason-lspconfig').setup_handlers({
 	end,
 	['jdtls'] = function()
 		lspconfig.jdtls.setup({
+			capabilities = lsp_capabilities,
 			on_attach = function(c, b)
 				lsp_attach(c, b)
 
@@ -93,6 +94,7 @@ require('mason-lspconfig').setup_handlers({
 	end,
 	['tsserver'] = function()
 		lspconfig.tsserver.setup({
+			capabilities = lsp_capabilities,
 			on_attach = lsp_attach,
 			settings = {
 				javascript = {
@@ -122,6 +124,7 @@ require('mason-lspconfig').setup_handlers({
 	end,
 	["lua_ls"] = function()
 		lspconfig.lua_ls.setup {
+			capabilities = lsp_capabilities,
 			on_attach = lsp_attach,
 			settings = {
 				Lua = {
@@ -134,6 +137,7 @@ require('mason-lspconfig').setup_handlers({
 	end,
 	['gopls'] = function()
 		lspconfig.gopls.setup {
+			capabilities = lsp_capabilities,
 			on_attach = lsp_attach,
 			cmd = { "gopls", "serve" },
 			filetypes = { "go", "gomod" },
