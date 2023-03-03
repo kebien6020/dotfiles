@@ -16,6 +16,7 @@ require('mason-lspconfig').setup({
 		'rust_analyzer',
 		'clangd',
 		'gopls',
+		'pyright',
 	}
 })
 
@@ -155,6 +156,19 @@ require('mason-lspconfig').setup_handlers({
 					},
 				},
 			},
+		}
+	end,
+	['pyright'] = function()
+		lspconfig.pyright.setup {
+			on_attach = lsp_attach,
+			settings = {
+				pyright = {
+					inlayHints = {
+						variableTypes = true,
+						functionReturnTypes = true,
+					}
+				}
+			}
 		}
 	end,
 })
