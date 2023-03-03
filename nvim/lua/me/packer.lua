@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
 	use 'nvim-treesitter/playground' -- Explore tree-sitter AST :TSPlaygroundToggle
 	use 'mbbill/undotree' -- Advanced undo
 	use 'tpope/vim-fugitive' -- Git integration
+	use 'tpope/vim-surround' -- Surround text objects
 	use 'lukas-reineke/virt-column.nvim' -- Thin colorcolumn
 	use 'christoomey/vim-tmux-navigator'
 	use {
