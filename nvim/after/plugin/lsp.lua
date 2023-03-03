@@ -159,7 +159,8 @@ require('mason-lspconfig').setup_handlers({
 
 -- Start Inlay Hint provider
 ih.setup()
-vim.cmd.hi('LspInlayHint guifg=#00ffff guibg=#000000')
+vim.cmd.hi('LspInlayHint guifg=#555555 guibg=#000000')
+
 -- Automatic completion triggering
 cmp.setup {
 	snippet = {
