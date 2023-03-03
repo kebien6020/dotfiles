@@ -92,6 +92,8 @@ bash_prompt_command() {
     P_EXIT+="${P_RED}✘ "
   fi
 
+  history -a # Flush bash history to file
+
   PS1="${P_EXIT}${P_HOST} ${P_YELLOW}${P_PWD}${P_GREEN}${P_GIT}${P_YELLOW} ❯ ${P_RESET}\n "
 }
 
