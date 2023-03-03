@@ -59,6 +59,8 @@ require('mason-lspconfig').setup_handlers({
 			capabilities = lsp_capabilities,
 			on_attach = function(c, b)
 				lsp_attach(c, b)
+				vim.api.nvim_create_autocmd('CursorHold', { buffer = b, callback = vim.lsp.buf.document_highlight })
+				vim.api.nvim_create_autocmd('CursorMoved', { buffer = b, callback = vim.lsp.buf.clear_references })
 
 				local config = {
 					cmd = { 'jdtls' },
