@@ -28,3 +28,4 @@ vim.opt.showbreak = '⮑'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = 'expr'
+vim.opt.exrc = true -- Read local .exrc
