@@ -6,7 +6,7 @@ RUN apt-get update -y && \
     apt-get install -y \
       sudo man file tree locales xz-utils bzip2 unzip \
       git curl jq \
-      vim tmux \
+      vim neovim tmux \
       gcc g++ clang clangd \
       make cmake \
       silversearcher-ag fzf \
@@ -14,7 +14,7 @@ RUN apt-get update -y && \
       openjdk-17-jdk rlwrap \
       apt-transport-https ca-certificates gnupg lsb-release && \
     curl -fsSL https://get.docker.com | bash - && \
-    curl -fsSL https://deb.nodesource.com/setup_17.x | bash - && \
+    curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && \
     curl -fsSL https://download.clojure.org/install/linux-install-1.10.3.1087.sh | bash - && \
     curl -fsSL https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install | bash - && \
     apt-get install -y nodejs && \
@@ -30,6 +30,7 @@ WORKDIR /home/kevin
 COPY --chown=kevin:kevin . .dotfiles
 COPY --chown=kevin:kevin docker/docker-setup.sh docker-setup.sh
 RUN ~/.dotfiles/scripts/plug.sh && \
+    ~/.dotfiles/scripts/packer.sh && \
     ~/.dotfiles/scripts/tpm.sh && \
     ~/.dotfiles/scripts/coc.sh && \
     ~/.dotfiles/scripts/symlinks.sh && \
