@@ -19,7 +19,11 @@ system. In rough order of how much I need them for my workflow.
 
 ```sh
 sudo apt update
-sudo apt install -y curl git jq vim tmux neovim
+sudo apt install -y curl git jq vim tmux
+
+# Neovim
+curl -fsSL https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb -o /tmp/nvim.deb
+sudo apt install /tmp/nvim.deb
 
 # Node
 curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - 

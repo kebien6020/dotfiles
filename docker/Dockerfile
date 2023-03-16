@@ -6,7 +6,7 @@ RUN apt-get update -y && \
     apt-get install -y \
       sudo man file tree locales xz-utils bzip2 unzip \
       git curl jq \
-      vim neovim tmux \
+      vim tmux \
       gcc g++ clang clangd \
       make cmake \
       silversearcher-ag fzf \
@@ -17,6 +17,8 @@ RUN apt-get update -y && \
     curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && \
     curl -fsSL https://download.clojure.org/install/linux-install-1.10.3.1087.sh | bash - && \
     curl -fsSL https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install | bash - && \
+    curl -fsSL https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb -o /tmp/nvim.deb && \
+    apt install /tmp/nvim.deb && \
     apt-get install -y nodejs && \
     useradd -ms /bin/bash kevin && \
     usermod -aG sudo kevin && \
