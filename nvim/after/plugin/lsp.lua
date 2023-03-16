@@ -70,20 +70,16 @@ require('mason-lspconfig').setup_handlers({
 				require('jdtls').start_or_attach(config)
 
 			end,
-			-- cmd = { '/Users/kevin/.local/share/nvim/mason/bin/jdtls' },
-			init_options = {
-				settings = {
-					java = {
-						home = '/opt/homebrew/Cellar/openjdk/19.0.1/libexec/openjdk.jdk/Contents/Home/',
-					},
+			cmd = {
+				'/home/kevin/srcs/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin/jdtls',
+				'-configuration', '/home/kevin/.cache/jdtls/config',
+				'-data', '/home/kevin/.cache/jdtls/workspace'
+			},
+
+			settings = {
+				java = {
 					configuration = {
 						checkProjectSettingsExclusions = true,
-						updateBuildConfiguration = "interactive",
-					},
-					import = {
-						maven = {
-							enabled = true,
-						},
 					},
 					inlayHints = {
 						parameterNames = {
