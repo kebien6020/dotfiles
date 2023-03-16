@@ -38,7 +38,7 @@ local lsp_attach = function(c, b)
 	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts('LSP Signature help'))
 
 	local cap = c.server_capabilities
-	if cap.document_highlight then
+	if cap.document_highlight or cap.documentHighlightProvider then
 		vim.api.nvim_create_autocmd('CursorHold', { buffer = b, callback = vim.lsp.buf.document_highlight })
 		vim.api.nvim_create_autocmd('CursorMoved', { buffer = b, callback = vim.lsp.buf.clear_references })
 	end
