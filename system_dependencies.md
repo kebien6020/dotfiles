@@ -75,14 +75,14 @@ popd
 
 Manually install everything:
 
-- Git: [https://git-scm.com/downloads]
-- jq: [https://stedolan.github.io/jq/]
-- vim: [https://www.vim.org/download.php#pc]
-- neovim: [https://github.com/neovim/neovim/releases/tag/stable]
+- Git: <https://git-scm.com/downloads>
+- jq: <https://stedolan.github.io/jq/>
+- vim: <https://www.vim.org/download.php#pc>
+- neovim: <https://github.com/neovim/neovim/releases/tag/stable>
 - Windows terminal (instead of tmux):
   [Github release](https://github.com/microsoft/terminal/releases/latest) or
   [Store link](https://aka.ms/terminal)
-- node: [https://nodejs.org/en/download/]
-- Docker desktop: [https://docs.docker.com/desktop/install/windows-install/]
-- Cygwin (bash and tmux won't work natively in windows): [https://cygwin.com/setup-x86_64.exe]
+- node: <https://nodejs.org/en/download/>
+- Docker desktop: <https://docs.docker.com/desktop/install/windows-install/>
+- Cygwin (bash and tmux won't work natively in windows): <https://cygwin.com/setup-x86_64.exe>
 
