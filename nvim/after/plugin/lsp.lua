@@ -3,6 +3,7 @@ local lspconfig = require('lspconfig')
 local util = require('lspconfig/util')
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local status = require 'lsp-status'
 
 -- vim.lsp.set_log_level('debug')
 
@@ -20,7 +21,17 @@ require('mason-lspconfig').setup({
 	}
 })
 
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+status.config {
+	indicator_ok = '[OK]',
+	status_symbol = '',
+}
+
+status.register_progress()
+
+local lsp_capabilities = vim.tbl_extend('keep',
+	require('cmp_nvim_lsp').default_capabilities(),
+	status.capabilities
+)
 
 local lsp_attach = function(c, b)
 	local opts = function(desc) return { buffer = b, remap = false, desc = desc } end
@@ -46,6 +57,7 @@ local lsp_attach = function(c, b)
 		{ buffer = b, callback = function() vim.lsp.buf.format { async = false } end })
 
 	ih.on_attach(c, b)
+	status.on_attach(c)
 end
 
 require('mason-lspconfig').setup_handlers({

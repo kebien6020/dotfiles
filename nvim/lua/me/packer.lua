@@ -52,6 +52,6 @@ return require('packer').startup(function(use)
 			{ 'rafamadriz/friendly-snippets' }, -- Optional
 		}
 	}
-
-	use { 'lvimuser/lsp-inlayhints.nvim', branch = 'anticonceal' }
+	use 'lvimuser/lsp-inlayhints.nvim'
+	use 'nvim-lua/lsp-status.nvim' -- Progress and similar
 end)
