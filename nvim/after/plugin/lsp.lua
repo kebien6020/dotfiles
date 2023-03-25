@@ -3,6 +3,7 @@ local lspconfig = require('lspconfig')
 local util = require('lspconfig/util')
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local rt = require 'rust-tools'
 local status = require 'lsp-status'
 
 -- vim.lsp.set_log_level('debug')
@@ -178,6 +179,32 @@ require('mason-lspconfig').setup_handlers({
 				}
 			}
 		}
+	end,
+	['rust_analyzer'] = function()
+		rt.setup {
+			server = {
+				on_attach = lsp_attach,
+				settings = {
+					['rust-analyzer'] = {
+						procMacro = {
+							enable = true
+						},
+					},
+				},
+			}
+		}
+
+		-- lspconfig.rust_analyzer.setup {
+		-- 	capabilities = lsp_capabilities,
+		-- 	on_attach = lsp_attach,
+		-- 	settings = {
+		-- 		['rust-analyzer'] = {
+		-- 			procMacro = {
+		-- 				enable = true
+		-- 			},
+		-- 		},
+		-- 	},
+		-- }
 	end,
 })
 

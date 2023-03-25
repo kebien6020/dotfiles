@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 	}
 
 	use 'mfussenegger/nvim-jdtls' -- Java additional support
+	use 'simrat39/rust-tools.nvim' -- Rust additional support
 
 	-- Markdown
 	use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, } -- Browser preview with :MarkdownPreview
