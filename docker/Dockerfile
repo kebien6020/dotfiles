@@ -17,10 +17,10 @@ RUN apt-get update -y && \
     curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && \
     curl -fsSL https://download.clojure.org/install/linux-install-1.10.3.1087.sh | bash - && \
     curl -fsSL https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install | bash - && \
-    [ "$(uname -m)" == x86_64 ] && { \
+    [ "$(uname -m)" = "x86_64" ] && { \
       curl -fsSL https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb -o /tmp/nvim.deb && \
-      apt install /tmp/nvim.deb; \
-    } || apt-get install neovim && \
+      apt install -y /tmp/nvim.deb; \
+    } || apt-get install -y neovim && \
     apt-get install -y nodejs && \
     useradd -ms /bin/bash kevin && \
     usermod -aG sudo kevin && \
