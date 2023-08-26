@@ -2,6 +2,7 @@
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
 export EDITOR="nvim"
+export SYSTEMD_EDITOR="nvim"
 export DOT=$HOME/.dotfiles
 export GPG_TTY; GPG_TTY="$(tty)"
 
