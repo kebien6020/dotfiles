@@ -54,8 +54,17 @@ local lsp_attach = function(c, b)
 		vim.api.nvim_create_autocmd('CursorHold', { buffer = b, callback = vim.lsp.buf.document_highlight })
 		vim.api.nvim_create_autocmd('CursorMoved', { buffer = b, callback = vim.lsp.buf.clear_references })
 	end
-	vim.api.nvim_create_autocmd('BufWritePre',
-		{ buffer = b, callback = function() vim.lsp.buf.format { async = false } end })
+
+	vim.api.nvim_create_autocmd('BufWritePre', {
+		buffer = b,
+		callback = function()
+			vim.lsp.buf.format {
+				async = false,
+				-- Format TS/JS with eslint
+				filter = function(client) return client.name ~= "tsserver" end
+			}
+		end
+	})
 
 	ih.on_attach(c, b)
 	status.on_attach(c)
@@ -81,14 +90,12 @@ require('mason-lspconfig').setup_handlers({
 					root_dir = vim.fs.dirname(vim.fs.find({ '.gradlew', '.git', 'mvnw' }, { upward = true })[1]),
 				}
 				require('jdtls').start_or_attach(config)
-
 			end,
 			cmd = {
-				'/home/kevin/srcs/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin/jdtls',
+				'jdtls',
 				'-configuration', '/home/kevin/.cache/jdtls/config',
 				'-data', '/home/kevin/.cache/jdtls/workspace'
 			},
-
 			settings = {
 				java = {
 					configuration = {
@@ -111,28 +118,40 @@ require('mason-lspconfig').setup_handlers({
 			settings = {
 				javascript = {
 					inlayHints = {
-						includeInlayEnumMemberValueHints = true,
-						includeInlayFunctionLikeReturnTypeHints = true,
-						includeInlayFunctionParameterTypeHints = true,
-						includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-						includeInlayPropertyDeclarationTypeHints = true,
-						includeInlayVariableTypeHints = true,
+						includeInlayEnumMemberValueHints = false,
+						includeInlayFunctionLikeReturnTypeHints = false,
+						includeInlayFunctionParameterTypeHints = false,
+						includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all';
+						includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+						includeInlayPropertyDeclarationTypeHints = false,
+						includeInlayVariableTypeHints = false,
 					},
 				},
 				typescript = {
 					inlayHints = {
 						includeInlayEnumMemberValueHints = true,
 						includeInlayFunctionLikeReturnTypeHints = true,
-						includeInlayFunctionParameterTypeHints = true,
+						includeInlayFunctionParameterTypeHints = false,
 						includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-						includeInlayPropertyDeclarationTypeHints = true,
-						includeInlayVariableTypeHints = true,
+						includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+						includeInlayPropertyDeclarationTypeHints = false,
+						includeInlayVariableTypeHints = false,
 					},
 				},
 			},
 		})
+	end,
+	['eslint'] = function()
+		lspconfig.eslint.setup {
+			capabilities = lsp_capabilities,
+			on_attach = lsp_attach,
+			settings = {
+				eslint = {
+					autoFixOnSave = true,
+					format = { enable = true }
+				},
+			},
+		}
 	end,
 	["lua_ls"] = function()
 		lspconfig.lua_ls.setup {
