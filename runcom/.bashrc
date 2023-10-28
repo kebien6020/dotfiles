@@ -1,5 +1,6 @@
 # Profiling
 # PS4='+ $(/opt/homebrew/opt/coreutils/bin/gdate "+%s.%N")\011 '
+# PS4='+ $(date "+%s.%N")\011 '
 # exec 3>&2 2>/tmp/bashstart.$$.log
 # set -x
 
