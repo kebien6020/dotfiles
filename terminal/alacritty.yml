@@ -1,3 +1,5 @@
+# Documentation at /usr/share/doc/alacritty/example/alacritty.yml
+
 env:
   TERM: xterm-256color
 scrolling:
@@ -6,6 +8,7 @@ font:
   size: 14
 window:
   opacity: 0.9
+  startup_mode: Maximized
 
 # xterm
 colors:
