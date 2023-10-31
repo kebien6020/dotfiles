@@ -80,6 +80,7 @@ require('mason-lspconfig').setup_handlers({
     }
   end,
   ['jdtls'] = function()
+    --[[
     lspconfig.jdtls.setup({
       cmd = { "/Users/kevin/.local/share/nvim/mason/packages/jdtls/bin/jdtls" },
       capabilities = lsp_capabilities,
@@ -113,6 +114,7 @@ require('mason-lspconfig').setup_handlers({
         },
       },
     })
+    ]]
   end,
   ['tsserver'] = function()
     lspconfig.tsserver.setup({
