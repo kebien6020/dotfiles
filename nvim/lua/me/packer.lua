@@ -51,6 +51,9 @@ return require('packer').startup(function(use)
 			-- Snippets
 			{ 'L3MON4D3/LuaSnip' }, -- Required
 			{ 'rafamadriz/friendly-snippets' }, -- Optional
+
+			-- Misc
+			{ 'simrat39/symbols-outline.nvim' }, -- LSP Outline
 		}
 	}
 	use 'lvimuser/lsp-inlayhints.nvim'
