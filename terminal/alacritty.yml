@@ -1,11 +1,12 @@
 # Documentation at /usr/share/doc/alacritty/example/alacritty.yml
 
+import:
+  - ~/.dotfiles/terminal/font.yml
+  - ~/.alacritty.local.yml
 env:
   TERM: xterm-256color
 scrolling:
   history: 5000
-font:
-  size: 14
 window:
   opacity: 0.9
   startup_mode: Maximized
@@ -87,3 +88,5 @@ colors:
 #     magenta: '0xb218b2'
 #     cyan:    '0x18b2b2'
 #     white:   '0xb2b2b2'
+
+
