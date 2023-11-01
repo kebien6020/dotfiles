@@ -7,3 +7,5 @@ window:
   startup_mode: Maximized
 font:
   size: 14
+key_bindings:
+- { key: NumpadEnter, chars: "\x0d" } # Fix NumpadEnter being interpreted as C-l in tmux
