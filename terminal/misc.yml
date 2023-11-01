@@ -5,3 +5,5 @@ scrolling:
 window:
   opacity: 0.85
   startup_mode: Maximized
+font:
+  size: 14

@@ -2,6 +2,5 @@
 
 import:
   - ~/.dotfiles/terminal/misc.yml
-  - ~/.dotfiles/terminal/font.yml
   - ~/.dotfiles/terminal/colors.yml
   - ~/.alacritty.local.yml
