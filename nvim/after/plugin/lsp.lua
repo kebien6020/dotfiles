@@ -1,4 +1,4 @@
-local ih = require('lsp-inlayhints')
+-- local ih = require('lsp-inlayhints')
 local lspconfig = require('lspconfig')
 local util = require('lspconfig/util')
 local cmp = require 'cmp'
@@ -233,9 +233,9 @@ require('mason-lspconfig').setup_handlers({
 })
 
 -- Start Inlay Hint provider
-ih.setup()
-vim.cmd.hi('LspInlayHint guifg=#555555 guibg=NONE')
-vim.keymap.set('n', '<leader>si', ih.toggle)
+-- ih.setup()
+-- vim.cmd.hi('LspInlayHint guifg=#555555 guibg=NONE')
+-- vim.keymap.set('n', '<leader>si', ih.toggle)
 
 -- Automatic completion triggering
 cmp.setup {
