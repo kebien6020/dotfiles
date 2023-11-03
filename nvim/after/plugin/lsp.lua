@@ -68,7 +68,7 @@ local lsp_attach = function(c, b)
     end
   })
 
-  ih.on_attach(c, b)
+  -- ih.on_attach(c, b)
   status.on_attach(c)
 end
 
