@@ -1,0 +1,6 @@
+import = [
+  "~/.dotfiles/terminal/misc.toml",
+  "~/.dotfiles/terminal/font.toml",
+  "~/.dotfiles/terminal/colors.toml",
+  "~/.alacritty.local.toml",
+]

@@ -1,6 +1,0 @@
-# Documentation at /usr/share/doc/alacritty/example/alacritty.yml
-
-import:
-  - ~/.dotfiles/terminal/misc.yml
-  - ~/.dotfiles/terminal/colors.yml
-  - ~/.alacritty.local.yml
