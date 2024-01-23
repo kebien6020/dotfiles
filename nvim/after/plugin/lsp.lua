@@ -1,4 +1,3 @@
--- local ih = require('lsp-inlayhints')
 local lspconfig = require('lspconfig')
 local util = require('lspconfig/util')
 local cmp = require 'cmp'
@@ -63,7 +62,8 @@ local lsp_attach = function(c, b)
       vim.lsp.buf.format {
         async = false,
         -- Format TS/JS with eslint
-        filter = function(client) return client.name ~= "tsserver" end
+        filter = function(client) return client.name ~= "tsserver" end,
+        bufnr = b,
       }
     end
   })
@@ -149,10 +149,16 @@ require('mason-lspconfig').setup_handlers({
   ['eslint'] = function()
     lspconfig.eslint.setup {
       capabilities = lsp_capabilities,
-      on_attach = lsp_attach,
+      on_attach = function(c, b)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = b,
+          command = "EslintFixAll",
+        })
+        lsp_attach(c, b)
+      end,
       settings = {
         eslint = {
-          autoFixOnSave = true,
+          autoFixOnSave = false,
           format = { enable = true }
         },
       },
