@@ -5,7 +5,7 @@ foreground = "0xffffff"
 
 [colors.normal]
 black = "0x000000"
-blue = "0x0000ee"
+blue = "0x5c5cff"
 cyan = "0x00cdcd"
 green = "0x00cd00"
 magenta = "0xcd00cd"
