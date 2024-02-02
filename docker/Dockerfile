@@ -14,7 +14,7 @@ RUN apt-get update -y && \
       openjdk-17-jdk rlwrap \
       apt-transport-https ca-certificates gnupg lsb-release && \
     curl -fsSL https://get.docker.com | bash - && \
-    curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     curl -fsSL https://download.clojure.org/install/linux-install-1.10.3.1087.sh | bash - && \
     curl -fsSL https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install | bash - && \
     [ "$(uname -m)" = "x86_64" ] && { \
