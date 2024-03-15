@@ -9,5 +9,9 @@ opacity = 0.85
 startup_mode = "Maximized"
 
 [[keyboard.bindings]]
-chars = "\r"
 key = "NumpadEnter"
+chars = "\r"
+
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullscreen"
