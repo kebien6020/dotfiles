@@ -7,6 +7,7 @@ history = 5000
 [window]
 opacity = 0.85
 startup_mode = "Maximized"
+dynamic_padding = true
 
 [[keyboard.bindings]]
 key = "NumpadEnter"
@@ -14,4 +15,9 @@ chars = "\r"
 
 [[keyboard.bindings]]
 key = "F11"
+action = "ToggleFullscreen"
+
+[[keyboard.bindings]]
+key = "M"
+mods = "Control|Shift"
 action = "ToggleFullscreen"
