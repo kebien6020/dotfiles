@@ -2,10 +2,13 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
+
 	use { 'nvim-telescope/telescope.nvim', -- Fuzzy finder
 		branch = '0.1.x',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
+	use {'nvim-telescope/telescope-ui-select.nvim' }
+
 	use 'navarasu/onedark.nvim' -- Theme
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Parsing framework
 	use 'nvim-treesitter/playground' -- Explore tree-sitter AST :TSPlaygroundToggle
