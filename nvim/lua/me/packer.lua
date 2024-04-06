@@ -61,4 +61,7 @@ return require('packer').startup(function(use)
 	}
 	use 'lvimuser/lsp-inlayhints.nvim'
 	use 'nvim-lua/lsp-status.nvim' -- Progress and similar
+
+	-- Copilot
+	use 'github/copilot.vim'
 end)
