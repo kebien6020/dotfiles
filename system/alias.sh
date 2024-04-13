@@ -41,3 +41,6 @@ alias ketall='kubectl api-resources --verbs=list --namespaced -o name | xargs -n
 
 # neovim
 alias nv='nvim'
+
+# Keep typing yay after replacing it with paru
+alias yay='paru'
