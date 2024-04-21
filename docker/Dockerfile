@@ -4,7 +4,7 @@ FROM debian:stable-backports
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y \
-      sudo man file tree locales xz-utils bzip2 unzip htop \
+      sudo man file tree locales xz-utils bzip2 unzip zstd htop \
       git curl jq \
       vim tmux \
       gcc g++ clang clangd \
