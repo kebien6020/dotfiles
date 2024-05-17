@@ -13,9 +13,10 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz') -- Auto center <C-d> <C-z> n and N
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
-vim.keymap.set('x', 'p', '"_dP') -- Paste over selection without losing copy
+vim.keymap.set('x', 'p', 'P') -- Paste over selection without losing copy
 -- Move lines
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- Poor's man rename
 vim.keymap.set('n', '<leader>.', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>')
+
