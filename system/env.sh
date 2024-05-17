@@ -11,6 +11,7 @@ export LESSHISTFILE="${XDG_CONFIG_HOME}/lesshst"
 export NODE_REPL_HISTORY="${XDG_CONFIG_HOME}/node_repl_history"
 export TS_NODE_HISTORY="${XDG_CONFIG_HOME}/ts_node_repl_history"
 export SQLITE_HISTORY="${XDG_CONFIG_HOME}/sqlite_history"
+export BAT_THEME="TwoDark"
 
 # Add home folder binaries (at the start)
 export PATH=$HOME/bin:$PATH
