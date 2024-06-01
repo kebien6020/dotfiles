@@ -6,5 +6,6 @@ man() {
     LESS_TERMCAP_ue=$'\e[0m' \
     LESS_TERMCAP_so=$'\e[42;30m' \
     LESS_TERMCAP_se=$'\e[0m' \
+    GROFF_NO_SGR=1 \
     command man "$@"
 }
