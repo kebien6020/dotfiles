@@ -1,6 +1,6 @@
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or 'all'
-  ensure_installed = { 'c', 'lua', 'vim', 'help', 'javascript', 'typescript' },
+  ensure_installed = { 'c', 'lua', 'vim', 'javascript' },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -32,4 +32,5 @@ require 'nvim-treesitter.configs'.setup {
   },
 }
 
-require 'nvim-treesitter.parsers'.filetype_to_parsername.xml = 'html'
+-- require 'nvim-treesitter.parsers'.filetype_to_parsername.xml = 'html'
+vim.treesitter.language.register('html', 'xml')
