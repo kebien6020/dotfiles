@@ -7,15 +7,15 @@ return require('packer').startup(function(use)
 		branch = '0.1.x',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
-	use {'nvim-telescope/telescope-ui-select.nvim' }
+	use { 'nvim-telescope/telescope-ui-select.nvim' }
 
-	use 'navarasu/onedark.nvim' -- Theme
+	use 'navarasu/onedark.nvim'                               -- Theme
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Parsing framework
-	use 'nvim-treesitter/playground' -- Explore tree-sitter AST :TSPlaygroundToggle
-	use 'mbbill/undotree' -- Advanced undo
-	use 'tpope/vim-fugitive' -- Git integration
-	use 'tpope/vim-surround' -- Surround text objects
-	use 'lukas-reineke/virt-column.nvim' -- Thin colorcolumn
+	use 'nvim-treesitter/playground'                          -- Explore tree-sitter AST :TSPlaygroundToggle
+	use 'mbbill/undotree'                                     -- Advanced undo
+	use 'tpope/vim-fugitive'                                  -- Git integration
+	use 'tpope/vim-surround'                                  -- Surround text objects
+	use 'lukas-reineke/virt-column.nvim'                      -- Thin colorcolumn
 	use 'christoomey/vim-tmux-navigator'
 	use {
 		'nvim-tree/nvim-tree.lua',
@@ -32,34 +32,20 @@ return require('packer').startup(function(use)
 	use { 'ellisonleao/glow.nvim', config = function() require('glow').setup() end }         -- In terminal preview with :Glow
 
 
+	-- Autocompletion
+	use { 'hrsh7th/nvim-cmp' }      -- Required
+	use { 'hrsh7th/cmp-nvim-lsp' }  -- Required
+	use { 'hrsh7th/cmp-buffer' }    -- Optional
+	use { 'hrsh7th/cmp-path' }      -- Optional
+	use { 'saadparwaiz1/cmp_luasnip' } -- Optional
+	use { 'L3MON4D3/LuaSnip' }      -- Required
+	use { 'hrsh7th/cmp-nvim-lua' }  -- Optional
+
 	-- LSP
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v1.x',
-		requires = {
-			-- LSP Support
-			{ 'neovim/nvim-lspconfig' }, -- Required
-			{ 'williamboman/mason.nvim' }, -- Optional
-			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' }, -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
-			{ 'hrsh7th/cmp-buffer' }, -- Optional
-			{ 'hrsh7th/cmp-path' }, -- Optional
-			{ 'saadparwaiz1/cmp_luasnip' }, -- Optional
-			{ 'hrsh7th/cmp-nvim-lua' }, -- Optional
-
-			-- Snippets
-			{ 'L3MON4D3/LuaSnip' }, -- Required
-			{ 'rafamadriz/friendly-snippets' }, -- Optional
-
-			-- Misc
-			{ 'simrat39/symbols-outline.nvim' }, -- LSP Outline
-		}
-	}
+	use { 'neovim/nvim-lspconfig' }
+	use { 'simrat39/symbols-outline.nvim' }
+	use 'nvim-lua/lsp-status.nvim' -- Status line at the bottom
 	use 'lvimuser/lsp-inlayhints.nvim'
-	use 'nvim-lua/lsp-status.nvim' -- Progress and similar
 
 	-- Copilot
 	use 'github/copilot.vim'
