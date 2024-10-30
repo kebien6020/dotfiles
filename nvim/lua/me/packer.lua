@@ -49,4 +49,5 @@ return require('packer').startup(function(use)
 
 	-- Copilot
 	use 'github/copilot.vim'
+	use { 'CopilotC-Nvim/CopilotChat.nvim', branch = 'canary' }
 end)
