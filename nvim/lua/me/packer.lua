@@ -47,6 +47,10 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/lsp-status.nvim' -- Status line at the bottom
 	use 'lvimuser/lsp-inlayhints.nvim'
 
+	-- Debugging
+	use 'puremourning/vimspector'
+	use 'mfussenegger/nvim-dap'
+
 	-- Copilot
 	use 'github/copilot.vim'
 	use { 'CopilotC-Nvim/CopilotChat.nvim', branch = 'canary' }
