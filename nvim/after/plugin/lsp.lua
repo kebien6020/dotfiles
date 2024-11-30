@@ -6,6 +6,7 @@ local status = require 'lsp-status'
 
 lspconfig.clangd.setup { capabilities = lsp_capabilities, on_attach = lsp_attach }
 lspconfig.metals.setup { capabilities = lsp_capabilities, on_attach = lsp_attach } -- Scala
+lspconfig.terraformls.setup { capabilities = lsp_capabilities, on_attach = lsp_attach }
 
 -- ...the rest are on dedicated files
 
