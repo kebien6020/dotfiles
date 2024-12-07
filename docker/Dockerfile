@@ -1,49 +1,53 @@
 # syntax:docker/dockerfile:1
-FROM debian:stable-backports
+FROM archlinux:base-devel
 
-RUN apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install -y \
-      sudo man file tree locales xz-utils bzip2 unzip zstd htop \
-      git curl jq \
-      vim tmux \
-      gcc g++ clang clangd \
+RUN pacman -Syu --noconfirm
+RUN pacman -S --noconfirm \
+      sudo binutils file tree tzdata xz bzip2 unzip zstd htop \
+      base-devel glibc pacman-contrib git curl jq \
+      vim neovim tmux \
+      gcc clang rustup \
+      go gopls \
       make cmake \
-      silversearcher-ag fzf \
-      awscli \
-      openjdk-17-jdk rlwrap \
-      apt-transport-https ca-certificates gnupg lsb-release && \
-    curl -fsSL https://get.docker.com | bash - && \
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    curl -fsSL https://download.clojure.org/install/linux-install-1.10.3.1087.sh | bash - && \
-    curl -fsSL https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install | bash - && \
-    [ "$(uname -m)" = "x86_64" ] && { \
-      mkdir -p /opt/nvim && \
-      curl -fsSL https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz \
-        | tar -xz --strip-components=1 -C /opt/nvim; \
-    } || apt-get install -y neovim && \
-    apt-get install -y nodejs && \
+      the_silver_searcher fzf \
+      aws-cli \
+      jdk-openjdk rlwrap \
+      ca-certificates gnupg lsb-release \
+      docker docker-buildx dive nodejs typescript-language-server \
+      clojure yaml-language-server lua-language-server && \
     useradd -ms /bin/bash kevin && \
-    usermod -aG sudo kevin && \
-    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
+    usermod -aG wheel kevin && \
+    echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    dpkg-reconfigure --frontend=noninteractive locales && \
-    update-locale LANG=en_US.UTF-8
+    locale-gen && \
+    ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime && \
+	paccache -rk0
 USER kevin
 WORKDIR /home/kevin
 
+RUN rustup toolchain install nightly && \
+    rustup default nightly && \
+	rustup component add rust-analyzer && \
+	rustup component remove rust-docs
+
+RUN mkdir -p src/ && \
+	cd src/ && \
+    git clone https://aur.archlinux.org/paru.git && \
+    cd paru && \
+    makepkg -si --noconfirm && \
+	rm -rf ~/.cargo
+
+RUN paru -S --noconfirm \
+      clojure-lsp-bin jdtls
+
 COPY --chown=kevin:kevin . .dotfiles
 COPY --chown=kevin:kevin docker/docker-setup.sh docker-setup.sh
-RUN ~/.dotfiles/scripts/plug.sh && \
-    ~/.dotfiles/scripts/packer.sh && \
+RUN ~/.dotfiles/scripts/packer.sh && \
     ~/.dotfiles/scripts/tpm.sh && \
-    ~/.dotfiles/scripts/coc.sh && \
-    ~/.dotfiles/scripts/symlinks.sh && \
-    vim +PlugInstall +qa
+    ~/.dotfiles/scripts/symlinks.sh
 
 VOLUME ["/home/kevin/projects"]
 ENV TERM=xterm-256color \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8 \
-    PATH="/opt/nvim:$PATH"
+    LC_ALL=en_US.UTF-8
