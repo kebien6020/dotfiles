@@ -5,6 +5,7 @@ RUN pacman -Syu --noconfirm
 RUN pacman -S --noconfirm \
       sudo binutils file tree tzdata xz bzip2 unzip zstd htop \
       base-devel glibc pacman-contrib git curl jq \
+      openssh bash-completion less \
       vim neovim tmux \
       gcc clang rustup \
       go gopls \
