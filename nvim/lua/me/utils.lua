@@ -1,6 +1,8 @@
 local status = require 'lsp-status'
 local tb = require 'telescope.builtin'
 local cmp_lsp = require 'cmp_nvim_lsp'
+local dap = require 'dap'
+local dap_widgets = require 'dap.ui.widgets'
 
 local M = {}
 
@@ -21,6 +23,13 @@ function M.lsp_attach(c, b)
 	vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts('LSP Rename'))
 	vim.keymap.set('n', '<leader>sr', vim.lsp.buf.rename, opts('LSP Rename'))
 	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts('LSP Signature help'))
+	vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, opts('DAP Toggle breakpoint'))
+	vim.keymap.set('n', '<leader>dc', dap.continue, opts('DAP Continue / Run'))
+	vim.keymap.set('n', '<leader>ds', dap.step_over, opts('DAP Step over'))
+	vim.keymap.set('n', '<leader>di', dap.step_over, opts('DAP Step into'))
+	vim.keymap.set('n', '<leader>dr', dap.repl.open, opts('DAP REPL'))
+	vim.keymap.set('n', '<leader>dh', dap_widgets.hover, opts('DAP Hover'))
+	vim.keymap.set('n', '<leader>K', dap_widgets.hover, opts('DAP Hover'))
 
 	local cap = c.server_capabilities
 	if cap.document_highlight or cap.documentHighlightProvider then

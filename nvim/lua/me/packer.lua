@@ -24,7 +24,10 @@ return require('packer').startup(function(use)
 		},
 	}
 
-	use 'mfussenegger/nvim-jdtls' -- Java additional support
+	-- Java
+	use { 'mfussenegger/nvim-jdtls', requires = { 'mfussenegger/nvim-dap' } }
+
+	-- Rust
 	use 'simrat39/rust-tools.nvim' -- Rust additional support
 
 	-- Markdown
@@ -33,13 +36,13 @@ return require('packer').startup(function(use)
 
 
 	-- Autocompletion
-	use 'hrsh7th/nvim-cmp'       -- Required
-	use 'hrsh7th/cmp-nvim-lsp'   -- Required
-	use 'hrsh7th/cmp-buffer'     -- Optional
-	use 'hrsh7th/cmp-path'       -- Optional
+	use 'hrsh7th/nvim-cmp'      -- Required
+	use 'hrsh7th/cmp-nvim-lsp'  -- Required
+	use 'hrsh7th/cmp-buffer'    -- Optional
+	use 'hrsh7th/cmp-path'      -- Optional
 	use 'saadparwaiz1/cmp_luasnip' -- Optional
-	use 'L3MON4D3/LuaSnip'       -- Required
-	use 'hrsh7th/cmp-nvim-lua'   -- Optional
+	use 'L3MON4D3/LuaSnip'      -- Required
+	use 'hrsh7th/cmp-nvim-lua'  -- Optional
 
 	-- LSP
 	use 'neovim/nvim-lspconfig'
@@ -48,7 +51,6 @@ return require('packer').startup(function(use)
 	use 'lvimuser/lsp-inlayhints.nvim'
 
 	-- Debugging
-	use 'puremourning/vimspector'
 	use 'mfussenegger/nvim-dap'
 
 	-- Copilot

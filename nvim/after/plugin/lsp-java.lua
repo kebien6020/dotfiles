@@ -1,13 +1,19 @@
+-- On this file: LSP + DAP
+
 local lsp_attach = require 'me.utils'.lsp_attach
 local lsp_capabilities = require 'me.utils'.lsp_capabilities
 
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = 'java',
 	callback = function()
+		local plugin_jar = vim.g.java_debug_plugin_jar or '/usr/share/java-debug/com.microsoft.java.debug.plugin.jar'
 		require('jdtls').start_or_attach({
 			cmd = { 'jdtls' },
 			on_attach = lsp_attach,
 			capabilities = lsp_capabilities,
+			init_options = {
+				bundles = { plugin_jar },
+			},
 		})
 	end,
 })
