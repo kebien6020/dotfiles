@@ -33,17 +33,17 @@ return require('packer').startup(function(use)
 
 
 	-- Autocompletion
-	use { 'hrsh7th/nvim-cmp' }      -- Required
-	use { 'hrsh7th/cmp-nvim-lsp' }  -- Required
-	use { 'hrsh7th/cmp-buffer' }    -- Optional
-	use { 'hrsh7th/cmp-path' }      -- Optional
-	use { 'saadparwaiz1/cmp_luasnip' } -- Optional
-	use { 'L3MON4D3/LuaSnip' }      -- Required
-	use { 'hrsh7th/cmp-nvim-lua' }  -- Optional
+	use 'hrsh7th/nvim-cmp'       -- Required
+	use 'hrsh7th/cmp-nvim-lsp'   -- Required
+	use 'hrsh7th/cmp-buffer'     -- Optional
+	use 'hrsh7th/cmp-path'       -- Optional
+	use 'saadparwaiz1/cmp_luasnip' -- Optional
+	use 'L3MON4D3/LuaSnip'       -- Required
+	use 'hrsh7th/cmp-nvim-lua'   -- Optional
 
 	-- LSP
-	use { 'neovim/nvim-lspconfig' }
-	use { 'simrat39/symbols-outline.nvim' }
+	use 'neovim/nvim-lspconfig'
+	use 'simrat39/symbols-outline.nvim'
 	use 'nvim-lua/lsp-status.nvim' -- Status line at the bottom
 	use 'lvimuser/lsp-inlayhints.nvim'
 
@@ -53,5 +53,5 @@ return require('packer').startup(function(use)
 
 	-- Copilot
 	use 'github/copilot.vim'
-	use { 'CopilotC-Nvim/CopilotChat.nvim', branch = 'canary' }
+	-- use 'CopilotC-Nvim/CopilotChat.nvim'
 end)
