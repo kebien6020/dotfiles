@@ -47,9 +47,8 @@ return require('packer').startup(function(use)
 
 	-- LSP
 	use 'neovim/nvim-lspconfig'
-	use 'simrat39/symbols-outline.nvim'
-	use 'nvim-lua/lsp-status.nvim' -- Status line at the bottom
 	use 'lvimuser/lsp-inlayhints.nvim'
+	use 'nvim-lualine/lualine.nvim'
 
 	-- Debugging
 	use 'mfussenegger/nvim-dap'

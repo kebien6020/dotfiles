@@ -1,4 +1,3 @@
-local status = require 'lsp-status'
 local tb = require 'telescope.builtin'
 local cmp_lsp = require 'cmp_nvim_lsp'
 local dap = require 'dap'
@@ -50,12 +49,8 @@ function M.lsp_attach(c, b)
 	})
 
 	-- ih.on_attach(c, b)
-	status.on_attach(c)
 end
 
-M.lsp_capabilities = vim.tbl_extend('keep',
-	cmp_lsp.default_capabilities(),
-	status.capabilities
-)
+M.lsp_capabilities = cmp_lsp.default_capabilities()
 
 return M
