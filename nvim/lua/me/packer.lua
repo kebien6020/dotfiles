@@ -56,5 +56,5 @@ return require('packer').startup(function(use)
 
 	-- Copilot
 	use 'github/copilot.vim'
-	-- use 'CopilotC-Nvim/CopilotChat.nvim'
+	use 'CopilotC-Nvim/CopilotChat.nvim'
 end)
