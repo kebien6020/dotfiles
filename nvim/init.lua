@@ -4,6 +4,6 @@ require("me.set")
 require("me.statusline")
 
 -- Load local configuration if it exists
-if vim.fn.filereadable("~/.nvim.local.lua") == 1 then
-	vim.cmd.source("~/.nvim.local.lua")
+if vim.fn.filereadable(os.getenv('HOME') .. '/.nvim.local.lua') == 1 then
+	vim.cmd.source(os.getenv('HOME') .. '/.nvim.local.lua')
 end
