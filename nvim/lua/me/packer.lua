@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
 
 	-- Rust
 	use 'simrat39/rust-tools.nvim' -- Rust additional support
+	use 'towolf/vim-helm'       -- Helm additional support
 
 	-- Markdown
 	use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, } -- Browser preview with :MarkdownPreview
