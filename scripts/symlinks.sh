@@ -8,3 +8,4 @@ rm $HOME/.vimrc; ln -s $DOT/vim/.vimrc $HOME/.vimrc
 rm $HOME/.tmux.conf; ln -s $DOT/tmux/.tmux.conf $HOME/.tmux.conf
 rm $HOME/.config/nvim; ln -s $DOT/nvim/ $HOME/.config/nvim
 rm $HOME/.config/alacritty/alacritty.{yml,toml}; mkdir -p $HOME/.config/alacritty; ln -s $DOT/terminal/alacritty.toml $HOME/.config/alacritty/alacritty.toml
+rm -r $HOME/.config/wezterm; ln -sf $DOT/wezterm/ $HOME/.config/wezterm
