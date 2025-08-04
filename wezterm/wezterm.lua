@@ -60,4 +60,15 @@ config.colors = {
 	},
 }
 
+-- OS Overrides
+
+if wezterm.target_triple == 'aarch64-apple-darwin' then
+	config.window_background_opacity = 0.90
+	config.font_size = 21
+	config.macos_window_background_blur = 20
+	config.font = wezterm.font_with_fallback({
+		{ family = 'Hasklug Nerd Font', weight = 'DemiBold' },
+	})
+end
+
 return config
