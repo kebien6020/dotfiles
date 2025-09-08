@@ -2,6 +2,8 @@ local wezterm = require 'wezterm'
 local mux = wezterm.mux
 local config = wezterm.config_builder()
 
+config.default_prog = { 'tmux' }
+
 config.scrollback_lines = 5000
 config.window_background_opacity = 0.85
 
@@ -10,6 +12,16 @@ wezterm.on('gui-startup', function(cmd)
 	local _, _, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
 end)
+
+-- Key binding to maximize
+
+wezterm.on('maximize-window', function(window, _)
+	window:maximize()
+end)
+
+config.keys = {
+	{ key = 'UpArrow', mods = 'META', action = wezterm.action.EmitEvent('maximize-window') },
+}
 
 config.window_padding = {
 	left = 0,
