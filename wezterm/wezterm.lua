@@ -81,6 +81,10 @@ if wezterm.target_triple == 'aarch64-apple-darwin' then
 	config.font = wezterm.font_with_fallback({
 		{ family = 'Hasklug Nerd Font', weight = 'DemiBold' },
 	})
+
+	config.keys = {
+		{ key = 'UpArrow', mods = 'OPT', action = wezterm.action.EmitEvent('maximize-window') },
+	}
 end
 
 return config
