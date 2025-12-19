@@ -28,8 +28,10 @@ return require('packer').startup(function(use)
 	use { 'mfussenegger/nvim-jdtls', requires = { 'mfussenegger/nvim-dap' } }
 
 	-- Rust
-	use 'simrat39/rust-tools.nvim' -- Rust additional support
-	use 'towolf/vim-helm'       -- Helm additional support
+	use 'mrcjkb/rustaceanvim' -- Rust additional support
+
+	-- Helm
+	use 'towolf/vim-helm' -- Helm additional support
 
 	-- Markdown
 	use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, } -- Browser preview with :MarkdownPreview

@@ -1,10 +1,7 @@
-local lspconfig = require 'lspconfig'
+local lsp = vim.lsp
 local lsp_attach = require 'me.utils'.lsp_attach
-local lsp_capabilities = require 'me.utils'.lsp_capabilities
 
-lspconfig.ts_ls.setup {
-	capabilities = lsp_capabilities,
-	on_attach = lsp_attach,
+lsp.config('ts_ls', {
 	settings = {
 		javascript = {
 			inlayHints = {
@@ -29,10 +26,9 @@ lspconfig.ts_ls.setup {
 			},
 		},
 	},
-}
+})
 
-lspconfig.eslint.setup {
-	capabilities = lsp_capabilities,
+lsp.config('eslint', {
 	on_attach = function(c, b)
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			buffer = b,
@@ -46,4 +42,4 @@ lspconfig.eslint.setup {
 			format = { enable = true }
 		},
 	},
-}
+})

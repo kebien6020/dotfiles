@@ -1,10 +1,6 @@
-local lspconfig = require 'lspconfig'
-local lsp_attach = require 'me.utils'.lsp_attach
-local lsp_capabilities = require 'me.utils'.lsp_capabilities
+local lsp = vim.lsp
 
-lspconfig.yamlls.setup {
-	capabilities = lsp_capabilities,
-	on_attach = lsp_attach,
+lsp.config('yamlls', {
 	settings = {
 		yaml = {
 			schemas = {
@@ -12,4 +8,4 @@ lspconfig.yamlls.setup {
 			}
 		},
 	},
-}
+})

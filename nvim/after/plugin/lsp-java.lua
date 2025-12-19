@@ -1,4 +1,5 @@
 -- On this file: LSP + DAP
+-- For java we're using jdtls plugin instead of bare lspconfig
 
 local lsp_attach = require 'me.utils'.lsp_attach
 local lsp_capabilities = require 'me.utils'.lsp_capabilities
