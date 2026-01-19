@@ -75,6 +75,7 @@ config.colors = {
 -- OS Overrides
 
 if wezterm.target_triple == 'aarch64-apple-darwin' then
+	config.default_prog = { '/bin/bash', '-lc', 'exec tmux' }
 	config.window_background_opacity = 0.90
 	config.font_size = 21
 	config.macos_window_background_blur = 20
