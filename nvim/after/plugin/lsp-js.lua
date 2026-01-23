@@ -43,3 +43,6 @@ lsp.config('eslint', {
 		},
 	},
 })
+
+lsp.enable('ts_ls')
+lsp.enable('eslint')

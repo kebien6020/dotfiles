@@ -9,3 +9,4 @@ lsp.config('lua_ls', {
 		}
 	}
 })
+lsp.enable('lua_ls')

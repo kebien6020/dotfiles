@@ -10,3 +10,4 @@ lsp.config('pyright', {
 		}
 	}
 })
+lsp.enable('pyright')

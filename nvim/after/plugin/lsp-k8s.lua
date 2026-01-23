@@ -9,3 +9,4 @@ lsp.config('yamlls', {
 		},
 	},
 })
+lsp.enable('yamlls')
