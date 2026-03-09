@@ -29,13 +29,6 @@ lsp.config('ts_ls', {
 })
 
 lsp.config('eslint', {
-	on_attach = function(c, b)
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			buffer = b,
-			command = "EslintFixAll",
-		})
-		lsp_attach(c, b)
-	end,
 	settings = {
 		eslint = {
 			autoFixOnSave = false,
@@ -44,5 +37,14 @@ lsp.config('eslint', {
 	},
 })
 
-lsp.enable('ts_ls')
-lsp.enable('eslint')
+vim.api.nvim_create_autocmd('LspAttach', {
+	pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	callback = function(args)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = args.buf,
+			command = "LspEslintFixAll",
+		})
+	end,
+})
+
+lsp.enable({'ts_ls', 'eslint'})
