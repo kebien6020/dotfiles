@@ -88,4 +88,9 @@ if wezterm.target_triple == 'aarch64-apple-darwin' then
 	}
 end
 
+config.default_gui_startup_args = {
+	'start',
+	'--always-new-process',
+}
+
 return config
