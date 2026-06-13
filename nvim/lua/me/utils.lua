@@ -36,17 +36,17 @@ function M.lsp_attach(c, b)
 		vim.api.nvim_create_autocmd('CursorMoved', { buffer = b, callback = vim.lsp.buf.clear_references })
 	end
 
-	vim.api.nvim_create_autocmd('BufWritePre', {
-		buffer = b,
-		callback = function()
-			vim.lsp.buf.format {
-				async = false,
-				-- Format TS/JS with eslint
-				filter = function(client) return client.name ~= "ts_ls" end,
-				bufnr = b,
-			}
-		end
-	})
+	-- vim.api.nvim_create_autocmd('BufWritePre', {
+	-- 	buffer = b,
+	-- 	callback = function()
+	-- 		vim.lsp.buf.format {
+	-- 			async = false,
+	-- 			-- Format TS/JS with eslint
+	-- 			filter = function(client) return client.name ~= "tsserver" end,
+	-- 			bufnr = b,
+	-- 		}
+	-- 	end
+	-- })
 
 	-- ih.on_attach(c, b)
 end
