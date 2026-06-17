@@ -20,5 +20,6 @@ lsp.enable('terraformls')
 lsp.enable('neocmake')
 lsp.enable('hls') -- Haskell
 lsp.enable('jsonls')
+lsp.enable('yamlls')
 
 -- ...the rest are on dedicated files

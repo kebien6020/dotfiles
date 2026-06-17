@@ -9,13 +9,11 @@ return require('packer').startup(function(use)
 	}
 	use { 'nvim-telescope/telescope-ui-select.nvim' }
 
-	use 'navarasu/onedark.nvim'                               -- Theme
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Parsing framework
-	use 'nvim-treesitter/playground'                          -- Explore tree-sitter AST :TSPlaygroundToggle
-	use 'mbbill/undotree'                                     -- Advanced undo
-	use 'tpope/vim-fugitive'                                  -- Git integration
-	use 'tpope/vim-surround'                                  -- Surround text objects
-	use 'lukas-reineke/virt-column.nvim'                      -- Thin colorcolumn
+	use 'navarasu/onedark.nvim'       -- Theme
+	use 'mbbill/undotree'             -- Advanced undo
+	use 'tpope/vim-fugitive'          -- Git integration
+	use 'tpope/vim-surround'          -- Surround text objects
+	use 'lukas-reineke/virt-column.nvim' -- Thin colorcolumn
 	use 'christoomey/vim-tmux-navigator'
 	use {
 		'nvim-tree/nvim-tree.lua',
