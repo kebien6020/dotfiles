@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
 	use { 'mfussenegger/nvim-jdtls', requires = { 'mfussenegger/nvim-dap' } }
 
 	-- Rust
-	use 'mrcjkb/rustaceanvim' -- Rust additional support
+	use { 'mrcjkb/rustaceanvim', branch = 'main' } -- Rust additional support
 
 	-- Helm
 	use 'towolf/vim-helm' -- Helm additional support
