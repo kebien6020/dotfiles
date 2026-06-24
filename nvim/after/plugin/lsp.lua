@@ -21,5 +21,10 @@ lsp.enable('neocmake')
 lsp.enable('hls') -- Haskell
 lsp.enable('jsonls')
 lsp.enable('yamlls')
-
 -- ...the rest are on dedicated files
+
+-- LspLog command
+vim.api.nvim_create_user_command('LspLog', function()
+	local path = vim.lsp.log.get_filename()
+	vim.cmd('edit ' .. path)
+end, { desc = 'Open LSP log file' })
