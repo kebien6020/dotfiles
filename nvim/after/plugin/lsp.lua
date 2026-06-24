@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 lsp.enable('clangd')
 lsp.enable('metals') -- Scala
-lsp.enable('terraformls')
 lsp.enable('neocmake')
 lsp.enable('hls') -- Haskell
 lsp.enable('jsonls')
